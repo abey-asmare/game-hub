@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 
 function GameCardContainer({ children }: { children: ReactNode }) {
   return (
-    <Box width="290px" borderRadius={10} margin={3} overflow={"hidden"}>
+    <Box borderRadius={10} margin={3} overflow={"hidden"}>
       {children}
     </Box>
   );
