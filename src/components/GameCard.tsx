@@ -9,7 +9,7 @@ type Props = {
 };
 function GameCard({ game }: Props) {
   return (
-    <Card.Root width="290px" borderRadius={10} margin={3} overflow={"hidden"}>
+    <Card.Root>
       <div>
         <Image src={getCroppedImageUrl(game.background_image)}></Image>
       </div>
