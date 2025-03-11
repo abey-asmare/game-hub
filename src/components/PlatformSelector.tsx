@@ -7,8 +7,13 @@ import {
 } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import usePlatforms from "../hooks/usePlatforms";
+import { Platform } from "../hooks/useGames";
 
-function PlatformSelector() {
+type Props = {
+  onSelectPlatform: (platform: Platform | null) => void;
+};
+
+function PlatformSelector({ onSelectPlatform }: Props) {
   const { data: platforms, error } = usePlatforms();
   if (error) return;
   return (
@@ -19,9 +24,13 @@ function PlatformSelector() {
           Platforms
         </Button>
       </MenuTrigger>
-      <MenuContent width="fit-content">
+      <MenuContent width="fit-content" position="absolute">
         {platforms.map((platform) => (
-          <MenuItem key={platform.id} value={platform.name}>
+          <MenuItem
+            key={platform.id}
+            value={platform.name}
+            onClick={() => onSelectPlatform(platform)}
+          >
             {platform.name}
           </MenuItem>
         ))}
