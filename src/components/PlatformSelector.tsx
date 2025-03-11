@@ -10,10 +10,11 @@ import usePlatforms from "../hooks/usePlatforms";
 import { Platform } from "../hooks/useGames";
 
 type Props = {
+  selectedPlatform: Platform | null;
   onSelectPlatform: (platform: Platform | null) => void;
 };
 
-function PlatformSelector({ onSelectPlatform }: Props) {
+function PlatformSelector({ selectedPlatform, onSelectPlatform }: Props) {
   const { data: platforms, error } = usePlatforms();
   if (error) return;
   return (
@@ -21,7 +22,7 @@ function PlatformSelector({ onSelectPlatform }: Props) {
       <MenuTrigger asChild>
         <Button variant="outline" size="sm">
           <BsChevronDown />
-          Platforms
+          {selectedPlatform?.name || "Platforms"}
         </Button>
       </MenuTrigger>
       <MenuContent width="fit-content" position="absolute">
