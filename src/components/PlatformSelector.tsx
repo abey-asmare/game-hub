@@ -18,14 +18,14 @@ function PlatformSelector({ selectedPlatform, onSelectPlatform }: Props) {
   const { data: platforms, error } = usePlatforms();
   if (error) return;
   return (
-    <MenuRoot>
+      <MenuRoot>
       <MenuTrigger asChild>
         <Button variant="outline" size="sm">
           <BsChevronDown />
           {selectedPlatform?.name || "Platforms"}
         </Button>
       </MenuTrigger>
-      <MenuContent width="fit-content" position="absolute">
+      <MenuContent width="fit-content" position="absolute" top="100%">
         {platforms.map((platform) => (
           <MenuItem
             key={platform.id}
@@ -37,7 +37,7 @@ function PlatformSelector({ selectedPlatform, onSelectPlatform }: Props) {
         ))}
       </MenuContent>
     </MenuRoot>
-  );
+);
 }
 
 export default PlatformSelector;
