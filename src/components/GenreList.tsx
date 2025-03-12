@@ -28,11 +28,15 @@ function GenreList({ selectedGenre, onSelectedGenre }: Props) {
               <Image
                 boxSize="32px"
                 borderRadius={8}
+                objectFit="cover"
                 src={getCroppedImageUrl(genre.image_background)}
               ></Image>
               <Button
                 variant="plain"
                 fontSize="lg"
+                paddingRight='auto'
+                textWrap="normal"
+                textAlign="left"
                 fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}
                 onClick={() => onSelectedGenre(genre)}
               >
