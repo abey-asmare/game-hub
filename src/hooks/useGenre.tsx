@@ -1,5 +1,4 @@
 import genres from "../data/genres";
-import useData from "./useData";
 
 export type Genre = {
   id: number;

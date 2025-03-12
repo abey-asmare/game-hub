@@ -10,31 +10,28 @@ type Props = {
 };
 function GameGrid({ gameQuery }: Props) {
   const { data, error, isLoading } = useGames(gameQuery);
+  return error && <Text>{error}</Text>;
   return (
-    <div>
-      {error && <Text>{error}</Text>}
-
-      <SimpleGrid
-        columns={{
-          sm: 1,
-          md: 2,
-          lg: 3,
-          xl: 4,
-        }}
-      >
-        {isLoading &&
-          Array.from({ length: 12 }).map((_, index) => (
-            <GameCardContainer key={index}>
-              <GameCardSkeleton />
-            </GameCardContainer>
-          ))}
-        {data.map((game) => (
-          <GameCardContainer key={game.id}>
-            <GameCard game={game} />
+    <SimpleGrid
+      columns={{
+        sm: 1,
+        md: 2,
+        lg: 3,
+        xl: 4,
+      }}
+    >
+      {isLoading &&
+        Array.from({ length: 12 }).map((_, index) => (
+          <GameCardContainer key={index}>
+            <GameCardSkeleton />
           </GameCardContainer>
         ))}
-      </SimpleGrid>
-    </div>
+      {data.map((game) => (
+        <GameCardContainer key={game.id}>
+          <GameCard game={game} />
+        </GameCardContainer>
+      ))}
+    </SimpleGrid>
   );
 }
 
