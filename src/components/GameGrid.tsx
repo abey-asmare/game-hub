@@ -10,7 +10,7 @@ type Props = {
 };
 function GameGrid({ gameQuery }: Props) {
   const { data, error, isLoading } = useGames(gameQuery);
-  return error && <Text>{error}</Text>;
+  if (error) return <Text>{error}</Text>;
   return (
     <SimpleGrid
       columns={{
