@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 function GameCardContainer({ children }: { children: ReactNode }) {
   return (
